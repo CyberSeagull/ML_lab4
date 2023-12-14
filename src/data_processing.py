@@ -58,11 +58,11 @@ def preprocess_data(comment):
     comment = stemming(comment)
     return comment
 
-'''
+
 print(get_length(train_set), get_length(test_set))
 get_plot(train_set['comment_text'])
 get_plot(test_set['comment_text'])
-'''
+
 
 train_set['clean_train'] = train_set['comment_text'].apply(preprocess_data)
 test_set['clean_test'] = test_set['comment_text'].apply(preprocess_data)

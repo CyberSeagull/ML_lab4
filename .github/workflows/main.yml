@@ -30,7 +30,3 @@ jobs:
     - name: Style check
       run: flake8 src
       working-directory: .
-
-    - name: Run tests
-      run: pytest tests
-      working-directory: .

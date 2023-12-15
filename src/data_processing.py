@@ -4,9 +4,6 @@ import matplotlib.pyplot as plt
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
-#from nltk.stem import WordNetLemmatizer
-#from num2words import num2words
-
 
 train_set = pd.read_csv('train.csv')
 test_set = pd.read_csv('test.csv')
@@ -32,12 +29,14 @@ def get_plot(comment):
 
 
 def remove_symbols(comment):
-    return re.sub(r'[^\w\s]','',comment)
+    return re.sub(r'[^\w\s]', '', comment)
 
 
 def remove_stopwords(comment):
     stop_words = set(stopwords.words('english'))
-    comment = ' '.join([word for word in comment.split() if word not in stop_words])
+    comment = ' '.join([word for word
+                        in comment.split()
+                        if word not in stop_words])
     return comment
 
 
@@ -47,7 +46,8 @@ def convert_lower_case(comment):
 
 def stemming(comment):
     max_length = 32
-    comment = ' '.join([stemmer.stem(word) if len(word) <= max_length else word for word in comment.split()])
+    comment = ' '.join([stemmer.stem(word) if len(word) <= max_length
+                        else word for word in comment.split()])
     return comment
 
 
@@ -69,4 +69,3 @@ test_set['clean_test'] = test_set['comment_text'].apply(preprocess_data)
 
 train_set.to_csv('cleaned_train.csv', index=False)
 test_set.to_csv('cleaned_test.csv', index=False)
-

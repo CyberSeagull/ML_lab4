@@ -1,8 +1,6 @@
 import requests
 from io import BytesIO
 from joblib import load
-from data_processing import get_length, remove_symbols, remove_stopwords, convert_lower_case, stemming, preprocess_data
-from sklearn.ensemble import RandomForestClassifier
 
 
 def download_model(url):
@@ -23,7 +21,11 @@ def predict_text(text, model):
     return prediction
 
 
-model_url = 'https://github.com/CyberSeagull/ML_lab4/blob/main/src/models/random_forest_model_weights.joblib'
+model_url = (
+    'https://github.com/CyberSeagull/ML_lab4/blob/main/src/models/'
+    'random_forest_model_weights.joblib'
+)
+
 
 rand_forest_model = download_model(model_url)
 

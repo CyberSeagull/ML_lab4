@@ -19,7 +19,12 @@ test_data = init_test_set.iloc[:10000]
 data_test_set = np.array(reduced_test)
 
 
-def predict_and_save_probabilities(label_column, train_set, test_set, train_features, test_features, output_file):
+def predict_and_save_probabilities(label_column,
+                                   train_set,
+                                   test_set,
+                                   train_features,
+                                   test_features,
+                                   output_file):
     labels = np.array(train_set[label_column])
     classifier = RandomForestClassifier(n_estimators=120)
     classifier.fit(train_features, labels)
@@ -35,6 +40,17 @@ def predict_and_save_probabilities(label_column, train_set, test_set, train_feat
 train_data = init_train_set.iloc[:10000]
 data_train_set = np.array(reduced_train)[:10000]
 
-labels = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
+labels = ['toxic',
+          'severe_toxic',
+          'obscene',
+          'threat',
+          'insult',
+          'identity_hate']
+
 for label in labels:
-    predict_and_save_probabilities(label, train_data, init_test_set, data_train_set, data_test_set, f'test_probabilities_{label}.csv')
+    predict_and_save_probabilities(label,
+                                   train_data,
+                                   init_test_set,
+                                   data_train_set,
+                                   data_test_set,
+                                   f'test_probabilities_{label}.csv')

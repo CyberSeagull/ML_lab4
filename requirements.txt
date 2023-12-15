@@ -1,0 +1,11 @@
+pandas
+re
+numpy
+nltk
+nltk.corpus stopwords
+nltk.stem.snowball SnowballStemmer
+sklearn.feature_extraction.text CountVectorizer
+sklearn.decomposition PCA
+sklearn.ensemble RandomForestClassifier
+requests
+joblib
